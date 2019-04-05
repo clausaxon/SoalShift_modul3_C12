@@ -51,7 +51,7 @@ Lalu, terjadi pemanggilan fungsi sort:
 ```
     sort (angka, argc);
 ```
-Terakhir, membaut thread:
+Terakhir, membuat thread:
 ```
 for(i=1;i<argc;i++) {
         int error;
@@ -299,7 +299,7 @@ void *tulis(void *arg)
                 system("rm tulis.txt");
 }
 ```
-Didalam fungsi main, membaut thread dan dijoinkan:
+Didalam fungsi main, membuat thread dan dijoinkan:
 ```
                 pthread_create(&(tid[0]),NULL,&buatFolder1,NULL);
                 sleep(1);
