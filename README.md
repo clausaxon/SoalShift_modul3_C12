@@ -1,5 +1,69 @@
 # SoalShift_modul3_C12
 
+1.Buatlah program C yang bisa menghitung faktorial secara parallel lalu menampilkan hasilnya secara berurutan
+Contoh:
+	./faktorial 5 3 4
+	3! = 6
+	4! = 24
+	5! = 120
+
+Jawab:
+
+Terdapat 2 fungsi yaitu fungsi factorial dan sort.
+Pertama Fungsi faktorial yang digunakan untuk menghitung faktorial dengan cara seperti dibawah ini:
+
+```
+if(i < 0){
+        printf("Error! Factorial of a negative number doesn't exist.");
+    }
+
+    else
+    {
+        while (i>0){
+            fac*=i;
+            i--;
+        }
+    }
+```
+Kedua, fungsi Sort yang digunakan untuk menyusun agar bilangat tersusun secara urut, dengan cara seperti ini:
+
+```
+     for(int i=1;i<argc;i++) {
+        for(int j=i;j<argc;j++) {
+            if(angka[i]>angka[j]) {
+                temp=angka[j];
+                angka[j]=angka[i];
+                angka[i]=temp;
+            }
+        }
+    }
+``` 
+
+Lalu, di fungsi main terjadi pemanggilan fungsi factorial dan Sort.
+Pertama, melakukan perubahan dari argv menjadi integer:
+```
+ while (i<argc){
+        angka[i]=atoi(argv[i]);
+        i++;
+    }
+```  
+Lalu, terjadi pemanggilan fungsi sort:
+```
+    sort (angka, argc);
+```
+Terakhir, membaut thread:
+```
+for(i=1;i<argc;i++) {
+        int error;
+        error=pthread_create(&(tid[i]),NULL,factorial,(void *)&angka[i]);
+        if(error!=0){
+                printf("Error!\n");
+        }
+        pthread_join(tid[i],NULL);
+    }
+}
+```
+
 ###NO.3
 
 Untuk no 3 , kita menggunakan sistem multi-threading
