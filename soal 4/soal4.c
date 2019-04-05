@@ -16,8 +16,8 @@ char tempat2 []= "/home/hayu/Documents/FolderProses2";
 char file1 [] = "/home/hayu/Documents/FolderProses1/SimpanProses1.txt";
 char file2 [] = "/home/hayu/Documents/FolderProses2/SimpanProses2.txt";
 
-void *buatFile1(void *arg);
-void *buatFile2(void *arg);
+void *buatFolder1(void *arg);
+void *buatFolder2(void *arg);
 void *zip1(void *arg);
 void *zip2(void *arg);
 void *unzip1(void *arg);
@@ -26,9 +26,9 @@ void *tulis(void *arg);
 
 int main(void)
 {
-                pthread_create(&(tid[0]),NULL,&buatFile1,NULL);
+                pthread_create(&(tid[0]),NULL,&buatFolder1,NULL);
                 sleep(1);
-                pthread_create(&(tid[1]),NULL,&buatFile2,NULL);
+                pthread_create(&(tid[1]),NULL,&buatFolder2,NULL);
                 sleep(1);
                 pthread_create(&(tid[2]),NULL,&zip1,NULL);
                 sleep(1);
@@ -50,14 +50,14 @@ int main(void)
                 return 0;
 }
 
-void *buatFile1(void *arg)
+void *buatFolder1(void *arg)
 {
                 char a[100]= "mkdir ";
                 strcat(a, tempat1);
                 system(a);
 }
 
-void *buatFile2(void *arg)
+void *buatFolder2(void *arg)
 {
                 char b[100]="mkdir ";
                 strcat(b, tempat2);
