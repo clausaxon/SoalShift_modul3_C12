@@ -286,8 +286,6 @@ void *unzip2(void *arg)
 ```
 Untuk memunculkan tulisan "Menunggu 15 detik untuk mengekstrak kembali":
 ```
-void *tulis(void *arg)
-{
                 FILE *tulis;
                 char file[50] = "tulis.txt";
                 tulis = fopen(file,"w");
@@ -297,7 +295,6 @@ void *tulis(void *arg)
                 strcat(cat, file);
                 system(cat);
                 system("rm tulis.txt");
-}
 ```
 Didalam fungsi main, membuat thread dan dijoinkan:
 ```
