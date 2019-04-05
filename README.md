@@ -10,8 +10,8 @@ Contoh:
 
 Jawab:
 
-Terdapat 2 fungsi yaitu fungsi factorial dan sort.
-Pertama Fungsi faktorial yang digunakan untuk menghitung faktorial dengan cara seperti dibawah ini:
+Terdapat 2 fungsi yaitu fungsi factorial() dan sort().
+Pertama, fungsi factorial() yang digunakan untuk menghitung faktorial dengan cara seperti dibawah ini:
 
 ```
 if(i < 0){
@@ -26,7 +26,7 @@ if(i < 0){
         }
     }
 ```
-Kedua, fungsi Sort yang digunakan untuk menyusun agar bilangan tersusun secara urut, dengan cara seperti ini:
+Kedua, fungsi sort() yang digunakan untuk menyusun agar bilangan tersusun secara urut, dengan cara seperti ini:
 
 ```
      for(int i=1;i<argc;i++) {
@@ -40,7 +40,7 @@ Kedua, fungsi Sort yang digunakan untuk menyusun agar bilangan tersusun secara u
     }
 ``` 
 
-Lalu, di fungsi main terjadi pemanggilan fungsi factorial dan Sort.
+Lalu, di fungsi main() terjadi pemanggilan fungsi factorial() dan sort().
 Pertama, melakukan perubahan dari argv menjadi integer:
 ```
  while (i<argc){
@@ -48,7 +48,7 @@ Pertama, melakukan perubahan dari argv menjadi integer:
         i++;
     }
 ```  
-Lalu, terjadi pemanggilan fungsi sort:
+Lalu, terjadi pemanggilan fungsi sort():
 ```
     sort (angka, argc);
 ```
@@ -278,7 +278,7 @@ void *buatFolder2(void *arg)
                 system(b);
 }
 ```
-Setelah itu, untuk menampilkan 10 list proses maka kita memakai ps -aux | head -10, lalu meembuat fie .zip dan menghapus file .txt:
+Setelah itu, untuk menampilkan 10 list proses maka kita memakai ps -aux | head -10, lalu membuat fie .zip dan menghapus file .txt:
 ```
 char file1 [] = "/home/hayu/Documents/FolderProses1/SimpanProses1.txt";
 char file2 [] = "/home/hayu/Documents/FolderProses2/SimpanProses2.txt";
@@ -317,41 +317,8 @@ void *unzip2(void *arg)
                 system("unzip /home/hayu/Documents/FolderProses2/KompresProses2.zip -d /home/hayu/Documents/FolderProses2/");
 }
 ```
-Untuk memunculkan tulisan "Menunggu 15 detik untuk mengekstrak kembali":
-```
-                FILE *tulis;
-                char file[50] = "tulis.txt";
-                tulis = fopen(file,"w");
-                fprintf(tulis, "Menunggu 15 detik untuk mengekstrak kembali\n");
-                fclose(tulis);
-                char cat[50]= "cat ";
-                strcat(cat, file);
-                system(cat);
-                system("rm tulis.txt");
-```
-Didalam fungsi main, membuat thread dan dijoinkan:
-```
-                pthread_create(&(tid[0]),NULL,&buatFolder1,NULL);
-                sleep(1);
-                pthread_create(&(tid[1]),NULL,&buatFolder2,NULL);
-                sleep(1);
-                pthread_create(&(tid[2]),NULL,&zip1,NULL);
-                sleep(1);
-                pthread_create(&(tid[3]),NULL,&zip2,NULL);
-                sleep(1);
-                pthread_create(&(tid[4]),NULL,&tulis,NULL);
-                sleep(15);
-                pthread_create(&(tid[5]),NULL,&unzip1,NULL);
-                pthread_create(&(tid[6]),NULL,&unzip2,NULL);
+Untuk tulisan "Menunggu 15 detik untuk mengekstrak kembali" diberi sleep(15) dan didalam fungsi main(), membuat thread dan dijoinkan.
 
-                pthread_join(tid[0],NULL);
-                pthread_join(tid[1],NULL);
-                pthread_join(tid[2],NULL);
-                pthread_join(tid[3],NULL);
-                pthread_join(tid[4],NULL);
-                pthread_join(tid[5],NULL);
-                pthread_join(tid[6],NULL);
-```
 ##5
 Angga, adik Jiwang akan berulang tahun yang ke sembilan pada tanggal 6 April besok. Karena lupa menabung, Jiwang tidak mempunyai uang sepeserpun untuk membelikan Angga kado. Kamu sebagai sahabat Jiwang ingin membantu Jiwang membahagiakan adiknya sehingga kamu menawarkan bantuan membuatkan permainan komputer sederhana menggunakan program C. Jiwang sangat menyukai idemu tersebut. Berikut permainan yang Jiwang minta. 
 	a. Pemain memelihara seekor monster lucu dalam permainan. Pemain dapat  memberi nama pada monsternya.
