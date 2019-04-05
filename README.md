@@ -231,14 +231,14 @@ Pertama, membuat folder bernama FolderProses1 dan FolderProses2:
 char tempat1 []= "/home/hayu/Documents/FolderProses1";
 char tempat2 []= "/home/hayu/Documents/FolderProses2";
 
-void *buatFile1(void *arg)
+void *buatFolder1(void *arg)
 {
                 char a[100]= "mkdir ";
                 strcat(a, tempat1);
                 system(a);
 }
 
-void *buatFile2(void *arg)
+void *buatFolder2(void *arg)
 {
                 char b[100]="mkdir ";
                 strcat(b, tempat2);
@@ -301,9 +301,9 @@ void *tulis(void *arg)
 ```
 Didalam fungsi main, membaut thread dan dijoinkan:
 ```
-                pthread_create(&(tid[0]),NULL,&buatFile1,NULL);
+                pthread_create(&(tid[0]),NULL,&buatFolder1,NULL);
                 sleep(1);
-                pthread_create(&(tid[1]),NULL,&buatFile2,NULL);
+                pthread_create(&(tid[1]),NULL,&buatFolder2,NULL);
                 sleep(1);
                 pthread_create(&(tid[2]),NULL,&zip1,NULL);
                 sleep(1);
