@@ -25,7 +25,7 @@ if(i < 0){
         }
     }
 ```
-Kedua, fungsi Sort yang digunakan untuk menyusun agar bilangat tersusun secara urut, dengan cara seperti ini:
+Kedua, fungsi Sort yang digunakan untuk menyusun agar bilangan tersusun secara urut, dengan cara seperti ini:
 
 ```
      for(int i=1;i<argc;i++) {
