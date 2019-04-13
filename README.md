@@ -79,6 +79,40 @@ f. Server pembeli akan mengirimkan info ke client yang terhubung dengannya apaka
 g. Server penjual akan mencetak stok saat ini setiap 5 detik sekali
 h. Menggunakan thread, socket, shared memory
 
+
+Untuk pembuatan 2 client dan 2 server kita bisa mengikuti template pembuatan socket di modul 3 sisop 
+
+
+Tetapi yang menjadi masalah adalah penggunaan shared memory dalam server dan penambahan thread sesuai yang diinginkan soal dengan adanya timer setiap 5 detik untuk pengeprintan jumlah dan beli.
+
+
+Koding pembikinan thread
+
+```c 
+int *p=value;
+    pthread_t tid1;
+pthread_create(&tid1, NULL, print, (void*) p);
+```
+
+Kodingan berada sebelum shared memory dan berada dalam server2.c
+
+
+Koding untuk fungsi print yang berada dalam server 2.c
+
+```c
+void* print(void* arg){
+    while(1){
+        int num = *((int *) arg);
+        printf("Stok : %d\n", num);
+        sleep(5);
+    }    
+}
+```
+
+Kodingan adalah bentuk fungsi sendiri yang akan dijalankan oleh thread dengan ada kondisi sleep selama 5 detik dan berada dalam server2.c
+
+
+
 ##3
 Agmal dan Iraj merupakan 2 sahabat yang sedang kuliah dan hidup satu kostan, sayangnya mereka mempunyai gaya hidup yang berkebalikan, dimana Iraj merupakan laki-laki yang sangat sehat,rajin berolahraga dan bangun tidak pernah kesiangan sedangkan Agmal hampir menghabiskan setengah umur hidupnya hanya untuk tidur dan ‘ngoding’. Dikarenakan mereka sahabat yang baik, Agmal dan iraj sama-sama ingin membuat satu sama lain mengikuti gaya hidup mereka dengan cara membuat Iraj sering tidur seperti Agmal, atau membuat Agmal selalu bangun pagi seperti Iraj. Buatlah suatu program C untuk menggambarkan kehidupan mereka dengan spesifikasi sebagai berikut:
 	a. Terdapat 2 karakter Agmal dan Iraj
